@@ -27,6 +27,8 @@ convertButton.onclick = function () {
     }
 }
 
+
+
 const getDetails = (e) => {
     celcius == true ? degree = "°C" : degree = "°F"
     if (userCity.value === "" || userCity.value.length < 3) {
