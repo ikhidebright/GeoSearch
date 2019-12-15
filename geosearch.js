@@ -8,6 +8,8 @@ let conditions = document.querySelector(".conditions");
 let mapimage = document.querySelector("img");
 let convertButton = document.querySelector(".cf");
 let presentSymbol = document.querySelector(".cf1");
+let error = document.querySelector(".error");
+let info = document.querySelector(".infoNow");
 let celcius = true;
 let degree = "";
 
@@ -28,12 +30,17 @@ convertButton.onclick = function () {
 }
 
 
-
 const getDetails = (e) => {
     celcius == true ? degree = "°C" : degree = "°F"
     if (userCity.value === "" || userCity.value.length < 3) {
-        temp.textContent = "City cannot be Empty"
+
+        error.style.display = "block";
+        error.textContent = "City details cannot be Empty";
+        setTimeout(() => { error.style.display = "none" }, 4000)
+
     } else {
+        info.style.display = "none";
+        document.querySelector(".cf").style.display = "block";
         document.querySelector(".cf1").textContent = "°C";
         celcius = true;
         celcius == true ? document.querySelector(".cf").textContent = "Convert to °F" : document.querySelector(".cf").textContent = "Convert to °C";
@@ -57,6 +64,3 @@ const getDetails = (e) => {
 }
 
 searchNow.addEventListener("click", getDetails);
-
-
-
